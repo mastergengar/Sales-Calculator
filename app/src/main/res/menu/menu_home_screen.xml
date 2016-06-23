@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".HomeScreen">
+
+    <!--<item android:id="@+id/sales_calculator_menu_item"-->
+        <!--android:title="Sales Calculator"-->
+        <!--android:orderInCategory="100"-->
+        <!--app:showAsAction="never" />-->
+
+    <item android:id="@+id/view_all_sales_menu_item"
+          android:title="View All Sales"
+          android:orderInCategory="100"
+          app:showAsAction="never" />
+
+    <item android:id="@+id/view_sales_statistics_menu_item"
+        android:title="View Sales Statistics"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+
+    <!--<item android:id="@+id/view_weekly_sales_values_menu_item"-->
+        <!--android:title="View Weekly Sales Values"-->
+        <!--android:orderInCategory="300"-->
+        <!--app:showAsAction="never"/>-->
+
+    <item android:id="@+id/exit_menu_item"
+        android:title="Exit"
+        app:showAsAction="never"
+        android:orderInCategory="600"/>
+
+</menu>
