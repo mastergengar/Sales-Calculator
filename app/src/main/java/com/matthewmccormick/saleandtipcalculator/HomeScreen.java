@@ -20,8 +20,6 @@ import android.widget.Toast;
 public class HomeScreen extends ActionBarActivity {
 
     SalesList salesList = new SalesList();
-
-
     TextView lastSaleAddedTextView;
     RadioButton cashRadioButton;
     RadioButton checkRadioButton;
@@ -46,19 +44,21 @@ public class HomeScreen extends ActionBarActivity {
             saveValuesToSavedPreferences();
             Intent intent = new Intent(this, AllSalesScreen.class);
             startActivity(intent);
-            return true;
         }
         else if (id == R.id.view_sales_statistics_menu_item){
             //Open Sale Statistics Screen
-            return true;
+        }
+        else if (id == R.id.view_reset_sales_menu_item){
+            resetAllSales();
         }
         else if (id == R.id.exit_menu_item){
             finish();
-            return true;
         }
         else {
             return super.onOptionsItemSelected(item);
         }
+
+        return true;
     }
 
     @Override
@@ -153,18 +153,14 @@ public class HomeScreen extends ActionBarActivity {
                 }
             }
         });
+    }
 
-        Button resetSalesButton = (Button) findViewById(R.id.resetSalesButton);
-        resetSalesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                salesList = new SalesList();
-                saveValuesToSavedPreferences();
-                refreshScreenValues();
-                lastSaleAddedTextView.setText("");
-                displayToastMessage("Sales Have Been Reset");
-            }
-        });
+    private void resetAllSales(){
+        salesList = new SalesList();
+        saveValuesToSavedPreferences();
+        refreshScreenValues();
+        lastSaleAddedTextView.setText("");
+        displayToastMessage("Sales Have Been Reset");
     }
 
     private void addNewSaleValuesToVariables(){

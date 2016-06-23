@@ -17,6 +17,11 @@
         android:orderInCategory="200"
         app:showAsAction="never" />
 
+    <item android:id="@+id/view_reset_sales_menu_item"
+        android:title="Reset Sales"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+
     <!--<item android:id="@+id/view_weekly_sales_values_menu_item"-->
         <!--android:title="View Weekly Sales Values"-->
         <!--android:orderInCategory="300"-->
