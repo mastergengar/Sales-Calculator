@@ -11,7 +11,7 @@ public class SalesList {
     private final double VME_MULTIPLIER = .064815;
     private final double MAX_SALE_TOTAL_FOR_VME = 77.14;
 
-    private List<Sale> salesList = new ArrayList<Sale>();
+    private List<Sale> salesList = new ArrayList<>();
     private double totalSales = 0;
     private double moneyOwed = 0;
     private double creditCardTips = 0;
@@ -81,19 +81,21 @@ public class SalesList {
     }
 
     public double getDailySales(){
-        return totalSales * DAILY_SALES_MULTIPLIER;
+        return Math.floor(totalSales * DAILY_SALES_MULTIPLIER * 100) / 100;
     }
 
     public double getDailyVME(){
+        double dailyVME = totalSales * VME_MULTIPLIER;
+
         if (anAddedSaleCreatesBadVME){
-            double vmeSaleTotal = 0;
+            dailyVME = 0;
             for (Sale sale: salesList){
-                if (doesSaleCreateBadVMETotal(sale)) vmeSaleTotal += MAX_SALE_TOTAL_FOR_VME;
-                else vmeSaleTotal += sale.getSaleTotal();
+                if (doesSaleCreateBadVMETotal(sale)) dailyVME += MAX_SALE_TOTAL_FOR_VME;
+                else dailyVME += sale.getSaleTotal();
             }
-            return vmeSaleTotal * VME_MULTIPLIER;
+            dailyVME *= VME_MULTIPLIER;
         }
-        return totalSales * VME_MULTIPLIER;
+        return Math.floor(dailyVME * 100) / 100;
     }
 
     public boolean isEmpty(){
